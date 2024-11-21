@@ -2,44 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham Escape Room</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Final Puzzle</title>
 </head>
 <body>
-    <div id="timer">10:00</div>
-    <div class="container">
-        <h1>Debug the code to defuse the bomb</h1>
-        <p id="pseudocode">
-             <!-- Displaying the pseudocode -->
-            <pre>
-    function diffuseBomb(wireSequence):
-        # Correct sequence of wires to cut
-        correctSequence = ["red", "green", "blue"]
-        
-        # Check if the input sequence matches the correct sequence
-        for i in range(len(correctSequence)):
-            if wireSequence[i] != correctSequence[i]:
-                print("ERROR: Incorrect wire sequence! Bomb detonated.")
-                return False
-        
-        # If the sequence is correct
-        print("Success! Bomb diffused.")
-        return True
-            </pre>
-        </p>
-        <textarea id="codeInput" placeholder="Enter your fix here..."></textarea>
-        <button id="submitBtn">Submit Fix</button>
-        <p id="response"></p>
+    <header>
+        <div class="logo">Gotham Escape Room</div>
+        <div id="timer">10:00</div>
+    </header>
 
-        <!-- Bomb animation section -->
-        <div id="bomb">
-            <div id="fuse"></div>
-            <div id="body"></div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <main>
+        <section class="intro">
+            <h1>Welcome to Gotham</h1>
+            <p>
+                The Joker has planted a bomb in Gotham City. Only you can stop it. 
+                Solve the riddles, find the clues, and debug the final code to save the city.
+            </p>
+        </section>
+
+        <section class="puzzle">
+            <div class="puzzle-content">
+                <h2>Final Challenge: Debug the Code</h2>
+                <pre id="pseudocode">
+function diffuseBomb(wireSequence):
+    # Correct sequence of wires to cut
+    correctSequence = ["red", "green", "blue"]
+    
+    # Check if the input sequence matches the correct sequence
+    for i in range(len(correctSequence)):
+        if wireSequence[i] != correctSequence[i]:
+            print("ERROR: Incorrect wire sequence! Bomb detonated.")
+            return False
+    
+    # If the sequence is correct
+    print("Success! Bomb diffused.")
+    return True
+                </pre>
+                <textarea id="codeInput" placeholder="Enter your fix here..."></textarea>
+                <button id="submitBtn">Submit Fix</button>
+                <p id="response"></p>
+            </div>
+        </section>
+
+        <section id="bomb-area">
+            <div id="bomb">
+                <div id="fuse"></div>
+                <div id="body"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Save Gotham. Time is running out...</p>
+    </footer>
+
+    <canvas id="confetti"></canvas>
 </body>
 </html>
