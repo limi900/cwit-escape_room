@@ -2,18 +2,21 @@ let timer = 600; // 10 minutes in seconds
 let attempts = 0;
 
 const timerElement = document.getElementById("timer");
+if (!timerElement) {
+    console.error("Timer element not found in the DOM.");
+}
 const responseElement = document.getElementById("response");
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 
 // Timer countdown
 const countdown = setInterval(() => {
-    const minutes = Math.floor(timer / 60);
-    const seconds = timer % 60;
-    timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    timer--;
-
-    if (timer < 0) {
+    if (timer >= 0) { // Ensure timer doesn't go negative
+        const minutes = Math.floor(timer / 60);
+        const seconds = timer % 60;
+        timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        timer--;
+    } else {
         clearInterval(countdown);
         detonateBomb("Time's up! Bomb detonated.");
     }
@@ -34,40 +37,7 @@ document.getElementById("submitBtn").addEventListener("click", () => {
         }
     }
 });
-/*
-// Confetti logic
-function detonateBomb(message) {
-    responseElement.textContent = message;
-    startConfetti();
-}
 
-function startConfetti() {
-    canvas.style.visibility = "visible";
-    let particles = [];
-    for (let i = 0; i < 300; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 5 + 2,
-            color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
-        });
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p) => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-            p.y += p.r / 2;
-            if (p.y > canvas.height) p.y = 0;
-        });
-        requestAnimationFrame(draw);
-    }
-    draw();
-}
-*/
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("explosionCanvas");
     const ctx = canvas.getContext("2d");
@@ -155,3 +125,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // Simulate explosion trigger (e.g., bomb timer ends)
     setTimeout(startExplosion, 10000); // Replace with your own logic
 });
+
+
+
+/*
+// Confetti logic
+function detonateBomb(message) {
+    responseElement.textContent = message;
+    startConfetti();
+}
+
+function startConfetti() {
+    canvas.style.visibility = "visible";
+    let particles = [];
+    for (let i = 0; i < 300; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 5 + 2,
+            color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            p.y += p.r / 2;
+            if (p.y > canvas.height) p.y = 0;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+*/

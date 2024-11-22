@@ -16,16 +16,7 @@ header {
     padding: 10px 20px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
 }
-/*
-.intro_img {
-    width: 300px;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border: 3px solid #e50914;
-    border-radius: 10px;
-}
-*/
+
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
