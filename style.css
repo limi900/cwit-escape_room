@@ -5,7 +5,7 @@ body {
     color: white;
     background: url('images/gotham_background.jpeg') no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden;
+    overflow: auto;
 }
 
 header {
@@ -38,9 +38,8 @@ header .logo {
     color: #ffd700;
 }
 
-main, section {
-    margin: 0;
-    padding: 0;
+section {
+    margin: 20px 0;
 }
 
 main {
@@ -64,8 +63,10 @@ main {
     border-radius: 10px;
     padding: 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto; /* Add vertical spacing to center the content */
     text-align: left;
+    overflow: visible; /* Ensure no content is hidden */
+    box-sizing: border-box;
 }
 
 pre {
@@ -79,7 +80,7 @@ pre {
 
 textarea {
     width: 100%;
-    height: 100px;
+    height: 80px;
     margin-top: 20px;
     font-family: monospace;
     padding: 10px;
@@ -87,10 +88,11 @@ textarea {
     color: white;
     border: 1px solid #555;
     border-radius: 5px;
+    resize: none;
 }
 
 button {
-    margin-top: 10px;
+    margin: 20px 0; /* Adds vertical spacing above and below */
     padding: 10px 20px;
     background: #e50914;
     border: none;
@@ -98,11 +100,13 @@ button {
     color: white;
     cursor: pointer;
     font-size: 1em;
+    display: block; /* Ensures it doesn't overlap with other elements */
 }
 
 button:hover {
     background: #c40712;
 }
+
 
 #bomb-area {
     margin: 50px auto;
@@ -146,9 +150,8 @@ button:hover {
 footer {
     background: #111;
     padding: 10px;
-    position: fixed;
+    position: relative;
     width: 100%;
-    bottom: 0;
     text-align: center;
     color: #888;
 }
