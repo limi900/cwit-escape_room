@@ -34,7 +34,7 @@ document.getElementById("submitBtn").addEventListener("click", () => {
         }
     }
 });
-
+/*
 // Confetti logic
 function detonateBomb(message) {
     responseElement.textContent = message;
@@ -67,3 +67,91 @@ function startConfetti() {
     }
     draw();
 }
+*/
+document.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById("explosionCanvas");
+    const ctx = canvas.getContext("2d");
+    const gameOverText = document.getElementById("gameOverText");
+
+    // Resize the canvas to fill the screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    let explosionComplete = false;
+
+    function createParticles() {
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: centerX,
+                y: centerY,
+                radius: Math.random() * 5 + 2,
+                color: `rgb(${Math.random() * 255}, ${Math.random() * 100}, 0)`,
+                velocityX: (Math.random() - 0.5) * 10,
+                velocityY: (Math.random() - 0.5) * 10,
+                alpha: 1
+            });
+        }
+    }
+
+    function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle, index) => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${particle.color}, ${particle.alpha})`;
+            ctx.fill();
+
+            // Update particle position and alpha
+            particle.x += particle.velocityX;
+            particle.y += particle.velocityY;
+            particle.alpha -= 0.02;
+
+            // Remove particles that are no longer visible
+            if (particle.alpha <= 0) {
+                particles.splice(index, 1);
+            }
+        });
+
+        // When all particles are gone, start fading the screen to black
+        if (particles.length === 0 && !explosionComplete) {
+            explosionComplete = true;
+            fadeToBlack();
+        }
+    }
+
+    function fadeToBlack() {
+        let opacity = 0;
+        const fadeInterval = setInterval(() => {
+            opacity += 0.02;
+            canvas.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+
+            if (opacity >= 1) {
+                clearInterval(fadeInterval);
+                showGameOver();
+            }
+        }, 50);
+    }
+
+    function showGameOver() {
+        canvas.style.display = "none";
+        gameOverText.style.visibility = "visible";
+    }
+
+    function startExplosion() {
+        canvas.style.display = "block";
+        createParticles();
+        const explosionInterval = setInterval(() => {
+            drawParticles();
+            if (explosionComplete) {
+                clearInterval(explosionInterval);
+            }
+        }, 30);
+    }
+
+    // Simulate explosion trigger (e.g., bomb timer ends)
+    setTimeout(startExplosion, 10000); // Replace with your own logic
+});
