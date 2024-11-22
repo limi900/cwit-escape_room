@@ -3,7 +3,8 @@ body {
     margin: 0;
     font-family: 'Gotham', sans-serif;
     color: white;
-    background-color: #1c1c1c;
+    background-color: url('images/gotham_background.jpeg') no-repeat center center fixed;
+    background-size: cover;
     overflow: hidden;
 }
 
