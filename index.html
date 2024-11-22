@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
 <body>
     <header>
         <div class="logo">Gotham Escape Room</div>
@@ -7,14 +16,32 @@
     <main>
         <section class="intro">
             <h1>Gotham</h1>
-            <p>Two Face has planted a bomb in Gotham City...</p>
-            <img src="images/gotham_background.jpeg" alt="skyline" class="intro_img">
+            <p>
+                Two Face has planted a bomb in Gotham City. Only you can stop it. 
+                You have solved the riddles and found the clues. The only thing left 
+                to do is debug the code to defuse the bomb and save the city.
+            </p>
+            <img src="images/gotham_background.jpg" alt="skyline" class="intro_img">
         </section>
 
         <section class="puzzle">
             <div class="puzzle-content">
                 <h2>Final Challenge: Debug the Code</h2>
-                <pre id="pseudocode">...</pre>
+                <pre id="pseudocode">
+function diffuseBomb(wireSequence):
+    # Correct sequence of wires to cut
+    correctSequence = ["red", "green", "blue"]
+    
+    # Check if the input sequence matches the correct sequence
+    for i in range(len(correctSequence)):
+        if wireSequence[i] != correctSequence[i]:
+            print("ERROR: Incorrect wire sequence! Bomb detonated.")
+            return False
+    
+    # If the sequence is correct
+    print("Success! Bomb diffused.")
+    return True
+                </pre>
                 <textarea id="codeInput" placeholder="Enter your fix here..."></textarea>
                 <button id="submitBtn">Submit Fix</button>
                 <p id="response"></p>
@@ -33,6 +60,10 @@
         <p>Save Gotham. Time is running out...</p>
     </footer>
 
+    <!--<canvas id="confetti"></canvas>-->
     <canvas id="explosionCanvas"></canvas>
     <div id="gameOverText">GAME OVER</div>
+
 </body>
+
+</html>
