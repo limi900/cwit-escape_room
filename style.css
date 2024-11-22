@@ -5,7 +5,7 @@ body {
     color: white;
     background: url('images/gotham_background.jpeg') no-repeat center center fixed;
     background-size: cover;
-    overflow: auto;
+    overflow: fixed;
 }
 
 header {
@@ -80,15 +80,15 @@ pre {
 
 textarea {
     width: 100%;
-    height: 80px;
-    margin-top: 20px;
+    height: 60px;
+    margin-top: 10px;
     font-family: monospace;
     padding: 10px;
     background: #333;
     color: white;
     border: 1px solid #555;
     border-radius: 5px;
-    resize: none;
+    overflow-x: auto;
 }
 
 button {
@@ -121,32 +121,6 @@ button:hover {
 }
 */
 
-
-#bomb {
-    width: 100px;
-    height: 150px;
-    background: black;
-    border-radius: 50%;
-    margin: 0 auto;
-    position: relative;
-}
-
-#fuse {
-    width: 10px;
-    height: 30px;
-    background: red;
-    position: absolute;
-    top: -30px;
-    left: 45px;
-    animation: flicker 1s infinite;
-}
-
-@keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
 footer {
     background: #111;
     padding: 10px;
@@ -156,16 +130,6 @@ footer {
     color: #888;
 }
 
-#confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 999;
-    visibility: hidden;
-}
 
 /* Explosion Canvas */
 #explosionCanvas {
