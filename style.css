@@ -1,8 +1,5 @@
 /* General Styles */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     margin: 0;
     font-family: 'Gotham', sans-serif;
     color: white;
@@ -37,14 +34,12 @@ header .logo {
     color: #ffd700;
 }
 
-/* section {
+section {
     margin: 20px 0;
-} */
+}
 
 main {
-    flex: 1;
     padding: 20px;
-    box-sizing: border-box;
     text-align: center;
     min-height: 100vh; /* Make sure main content fits the screen height */
     overflow: hidden;  /* Ensure no extra content overflows vertically */
@@ -56,11 +51,8 @@ main {
 }
 
 .intro p {
-    /* font-size: 1.2em;
-    margin-bottom: 30px; */
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 2em;
+    font-size: 1.2em;
+    margin-bottom: 30px;
 }
 
 .puzzle-content {
