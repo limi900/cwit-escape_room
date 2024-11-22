@@ -5,7 +5,12 @@ body {
     color: white;
     background: url('images/gotham_background.jpeg') no-repeat center center fixed;
     background-size: cover;
-    overflow: fixed;
+    overflow: hidden;
+}
+
+/* FOR DEBUGGING */
+* {
+    outline: 1px solid red;
 }
 
 header {
@@ -36,6 +41,8 @@ section {
 main {
     padding: 20px;
     text-align: center;
+    min-height: 100vh; /* Make sure main content fits the screen height */
+    overflow: hidden;  /* Ensure no extra content overflows vertically */
 }
 
 .intro h1 {
@@ -56,7 +63,7 @@ main {
     max-width: 800px;
     margin: 20px auto; /* Add vertical spacing to center the content */
     text-align: left;
-    overflow: visible; /* Ensure no content is hidden */
+    overflow: hidden; 
     box-sizing: border-box;
 }
 
@@ -79,7 +86,7 @@ textarea {
     color: white;
     border: 1px solid #555;
     border-radius: 5px;
-    overflow-x: auto;
+    /* overflow-x: auto; */
 }
 
 button {
