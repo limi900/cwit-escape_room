@@ -5,13 +5,13 @@ body {
     color: white;
     background: url('images/gotham_background.jpeg') no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* FOR DEBUGGING */
-* {
+/* * {
     outline: 1px solid red;
-}
+} */
 
 header {
     display: flex;
@@ -39,15 +39,15 @@ section {
 }
 
 main {
-    padding: 20px;
     text-align: center;
     min-height: 100vh; /* Make sure main content fits the screen height */
-    overflow: hidden;  /* Ensure no extra content overflows vertically */
+    overflow: visible;  /* Ensure no extra content overflows vertically */
 }
 
 .intro h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
+    margin-top: -8px
 }
 
 .intro p {
@@ -61,7 +61,7 @@ main {
     border-radius: 10px;
     padding: 20px;
     max-width: 800px;
-    margin: 20px auto; /* Add vertical spacing to center the content */
+    margin: 5px auto; /* Add vertical spacing to center the content */
     text-align: left;
     overflow: hidden; 
     box-sizing: border-box;
@@ -90,7 +90,7 @@ textarea {
 }
 
 button {
-    margin: 20px 0; /* Adds vertical spacing above and below */
+    margin: 10px 0; /* Adds vertical spacing above and below */
     padding: 10px 20px;
     background: #e50914;
     border: none;
@@ -105,13 +105,6 @@ button:hover {
     background: #c40712;
 }
 
-
-#bomb-area {
-    margin: 50px auto;
-    width: 150px;
-    height: 200px;
-    position: relative;
-}
 /*
 #bomb-area {
     margin: 0 auto; // Center alignment 

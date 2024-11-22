@@ -6,8 +6,7 @@ if (!timerElement) {
     console.error("Timer element not found in the DOM.");
 }
 const responseElement = document.getElementById("response");
-const canvas = document.getElementById("confetti");
-const ctx = canvas.getContext("2d");
+//const ctx = canvas.getContext("2d");
 
 // Timer countdown
 const countdown = setInterval(() => {
@@ -25,6 +24,7 @@ const countdown = setInterval(() => {
 // Submit button logic
 document.getElementById("submitBtn").addEventListener("click", () => {
     const userCode = document.getElementById("codeInput").value;
+    console.log('click');
 
     if (userCode.includes("len(wireSequence) != len(correctSequence)")) {
         responseElement.textContent = "Success! Bomb defused.";
