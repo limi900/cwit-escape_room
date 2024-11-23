@@ -15,9 +15,11 @@
         <div id="timer">10:00</div>
     </header>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
     <main>
         <section class="intro">
-            <h1>Gotham</h1>
+            <h1>Final Challenge: Debug the Code</h1>
             <p>
                 Two Face has planted a bomb in Gotham City. Only you can stop it.
                 You have solved the riddles and found the clues. The only thing left
@@ -27,7 +29,10 @@
 
         <section class="puzzle">
             <div class="puzzle-content">
-                <h2>Final Challenge: Debug the Code</h2>
+                <h2>
+                    Instructions: Find the line with the bug in the pseudocode. Rewrite the 
+                    whole line with the bug with the fix. 
+                </h2>
                 <pre id="pseudocode">
 function diffuseBomb(wireSequence):
     # Correct sequence of wires to cut
@@ -35,7 +40,7 @@ function diffuseBomb(wireSequence):
     
     # Check if the input sequence matches the correct sequence
     for i in range(len(correctSequence)):
-        if wireSequence[i] != correctSequence[i]:
+        if wireSequence[i] == correctSequence[i]:
             print("ERROR: Incorrect wire sequence! Bomb detonated.")
             return False
     
@@ -45,7 +50,7 @@ function diffuseBomb(wireSequence):
                 </pre>
                 <textarea id="codeInput" placeholder="Enter your fix here..."></textarea>
                 <button id="submitBtn">Submit Fix</button>
-                <!-- <p id="response"></p> -->
+                <p id="response"></p>
             </div>
         </section>
     </main>
@@ -54,10 +59,10 @@ function diffuseBomb(wireSequence):
         <p>Save Gotham. Time is running out...</p>
     </footer>
 
-    <!--<canvas id="confetti"></canvas>-->
+    <canvas id="confetti"></canvas>
     <canvas id="explosionCanvas"></canvas>
     <div id="gameOverText">GAME OVER</div>
+    <div id="gameSuccess">Bomb Successfully Defused</div>
 
 </body>
-
 </html>
