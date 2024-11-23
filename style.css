@@ -34,6 +34,12 @@ header .logo {
     color: #ffd700;
 }
 
+#left {
+    font-size: 1em;
+    text-align: left;
+    color: #888;
+}
+
 section {
     margin: 20px 0;
 }
